@@ -1,0 +1,23 @@
+{
+  "name": "myownpackage",
+  "version": "1.0.0",
+  "description": "My Node Package Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pack"
+  ],
+  "author": "Chandrakanth",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.11.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "webpack-cli": "^3.0.3"
+  }
+}
