@@ -5,22 +5,15 @@ let filePath = __filename;
 console.log("Current Path of file:\t",filePath);
 
 // To check if the file exists:
+/*
 files.exists(filePath,(value) =>{
     console.log("Does the file exists?\t",value);
 });
-
+*/
 
 // Test if file is accessible
+
 var textPath  = "C:/Users/sai/Desktop/Node Packages/SampleFile2.txt";
-// @param : path
-files.access(textPath,"r",(err)=>{
-    if(err){
-        throw err;
-    }
-    else{
-        return true;
-    }
-});
 
 // Read Directory contents:
 files.readdir(__dirname,(err, files)=>{
@@ -68,7 +61,7 @@ files.lstat(__dirname, (error, status) =>{
 });
 
 // Rename a File
-/*
+
 files.rename(textPath,textPath.replace(".txt","3.txt"), (err)=>{
     if(err){
         throw err;
@@ -77,7 +70,6 @@ files.rename(textPath,textPath.replace(".txt","3.txt"), (err)=>{
         console.log("Successfully Renamed a file");
     }
 })
-*/
 
 files.exists(__dirname.concat("\\abc"),(status) =>{
 console.log("Checking if file exists..............");
@@ -95,7 +87,7 @@ if(!status){
 
 
 // Remove Directory
-/*
+
 files.rmdir(__dirname.concat("\\abc"),(err) =>{
     if(err){
         throw err;
@@ -105,7 +97,7 @@ files.rmdir(__dirname.concat("\\abc"),(err) =>{
             console.log("Does file exist after deletion",exists);
         });
     }
-}); */
+}); 
 
 
 
@@ -123,13 +115,11 @@ else{
 console.log("File Access Modificationzzzzzzzzzzzzzz");
 var testFolder = "C:\\Users\\sai\\Desktop\\Node Packages\\FilePermissions";
 
-
-
+/*
 files.chmod(testFolder.concat("\\HideFile.txt"),4000,(err)=>{
   console.log("Get this done...!");
     if(err){
         console.error("Error. exists......",err.message);
-        
     }
     else{
         console.log("Error does not exists for file access changes");
@@ -144,7 +134,6 @@ files.chmod(testFolder.concat("\\HideFile.txt"),4000,(err)=>{
     }
 });
 
-files.watchFile(testFolder.concat());
 
 files.chown(testFolder,0,0,(err)=>{
     if(err){
@@ -155,31 +144,23 @@ files.chown(testFolder,0,0,(err)=>{
         console.log("Status changed");
     }
 });
+*/
 
 
 
 
 
 
-
-
-/*files.open('C:/Users/sai/Desktop/Node Pack(ages/SampleFile2.txt','w',(err,file) =>{
+files.open('C:/Users/sai/Desktop/Node Pack(ages/SampleFile2.txt','r',(err,file) =>{
     if(err){
         throw err;
     }
     console.log('saved')
 });
 console.log("Is File available?",files.exists('C:/Users/sai/Desktop/Node Packages/SampleFile.txt'));
-*/
-/*
-console.log("Write File started");
-files.writeFile('C:/Users/sai/Desktop/Node Packages/SampleFile2.txt','Hello Mate !','r', (err)=>{
-    if(err){
- console.error("Error while reading file", err.code);
-        throw err;
-}
-});
-*/
+
+
+
 /*
 files.readFile('C:/Users/sai/Desktop/Node Packages/SampleFile2.txt',(err,data)=>{
     if(err){
@@ -211,6 +192,8 @@ files.open('C:/Users/sai/Desktop/Node Packages/SampleFile.txt','r',(error,fd)=>{
         if(bytes>0){
             console.log(buffer.slice(0,bytes).toString());
         }
+        
+
         //Close the file
         files.close(fd,(err)=>{
             console.log("File Descriptor",fd.toString());
@@ -220,5 +203,22 @@ files.open('C:/Users/sai/Desktop/Node Packages/SampleFile.txt','r',(error,fd)=>{
         });
     });
     }
+}); */
+
+files.open('C:/Users/sai/Desktop/Node Packages/SampleFile.txt','r',(error,fd)=>{
+    if(error){
+        return console.error("Error opening file...",error.message());
+    }   
+    else{
+    var buffer = new Buffer('BUl Bul...........');
+        files.write(fd,buffer,0,buffer.length,null, (err)=>{
+            if(err){
+                throw err;
+            }
+            else{
+                console.length("Succes")
+            }
+        })
+    }
+
 });
-*/
